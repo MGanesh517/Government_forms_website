@@ -66,7 +66,7 @@ export async function fillPDFTemplate(
         size: watermarkSize,
         font: watermarkFont,
         color: rgb(0.9, 0.9, 0.9),
-        rotate: { angleInRadians: Math.PI / 4 },
+        rotate: { angleInRadians: Math.PI / 4 } as any,
         opacity: 0.3,
       })
     }

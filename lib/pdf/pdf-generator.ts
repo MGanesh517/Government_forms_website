@@ -4,7 +4,7 @@ import { FormData, FormId } from '@/types/forms'
 export async function generatePDF(formId: FormId, formData: FormData, isPremium: boolean = false): Promise<Uint8Array> {
   // Create a new PDF document
   const pdfDoc = await PDFDocument.create()
-  
+
   // Add a page
   const page = pdfDoc.addPage([612, 792]) // US Letter size
   const { width, height } = page.getSize()
@@ -27,7 +27,7 @@ export async function generatePDF(formId: FormId, formData: FormData, isPremium:
 
   // Add form data
   const formFields = getFormFields(formId, currentFormData)
-  
+
   for (const field of formFields) {
     if (yPosition < 50) {
       // Add new page if needed
@@ -72,7 +72,7 @@ export async function generatePDF(formId: FormId, formData: FormData, isPremium:
         size: watermarkSize,
         font: watermarkFont,
         color: rgb(0.9, 0.9, 0.9),
-        rotate: { angleInRadians: Math.PI / 4 },
+        rotate: { angleInRadians: Math.PI / 4 } as any,
         opacity: 0.3,
       })
     }
